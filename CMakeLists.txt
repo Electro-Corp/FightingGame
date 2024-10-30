@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
-project(STELLAR)
+project(FIGHTG)
 
 
 
@@ -32,7 +32,7 @@ include_directories(${JSONCPP_INCLUDE_DIR})
 include_directories(${SDL_INCLUDE_DIR})
 
 # Compiler executable
-add_executable(STELLAR
+add_executable(FIGHTG
     # Sprite
     src/graphics/sprite.h
     src/graphics/sprite.cpp
@@ -62,9 +62,9 @@ add_executable(STELLAR
 
 
 # Flags
-target_compile_options(STELLAR PUBLIC -fpermissive -Wno-c++11-narrowing -g -O0)
+target_compile_options(FIGHTG PUBLIC -fpermissive -Wno-c++11-narrowing -g -O0)
 
-target_link_libraries(STELLAR ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} sfml-graphics sfml-audio)
-target_link_libraries(STELLAR ${LUA_LIBRARIES} ${LUA_DEPENDENCIES})
-target_link_libraries(STELLAR ${SDL2_LIBRARIES} ${SDL2IMAGE_LIBRARIES} SDL2_image SDL2_ttf)
-TARGET_LINK_LIBRARIES(STELLAR jsoncpp_lib)
+target_link_libraries(FIGHTG ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} sfml-graphics sfml-audio)
+target_link_libraries(FIGHTG ${LUA_LIBRARIES} ${LUA_DEPENDENCIES})
+target_link_libraries(FIGHTG ${SDL2_LIBRARIES} ${SDL2IMAGE_LIBRARIES} SDL2_image SDL2_ttf)
+TARGET_LINK_LIBRARIES(FIGHTG jsoncpp_lib)

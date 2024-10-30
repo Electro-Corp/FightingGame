@@ -12,6 +12,8 @@
 #include <signal.h>
 #endif
 
+#define GAME_NAME "Fighting Game"
+
 namespace Scripting{
     class ScriptManager;
 }

@@ -5,7 +5,7 @@
 static int segfaults = 0;
 
 Game::SF::SF(){
-    this->renderer = new Rendering::Renderer(std::string("Stellar Fortress"), 800, 600, this);
+    this->renderer = new Rendering::Renderer(std::string(GAME_NAME), 800, 600, this);
     scriptMan = new Scripting::ScriptManager("../assets/scripts", renderer, this);
 
     #ifdef __linux__
@@ -15,7 +15,7 @@ Game::SF::SF(){
     signal(SIGKILL, endGame);
     #endif
     
-    std::cout << "STELLAR FORTRESS\n";
+    std::cout << GAME_NAME << "\n";
 }
 
 /**
@@ -78,7 +78,7 @@ void Game::SF::endGame(int s){
     // Print bye bye
     std::cout << "Cleaning up..\n";
     // clean up
-    std::cout << "Exiting Stellar Fortress. Loser.\n";
+    std::cout << "Exiting " << GAME_NAME << ". Loser.\n";
     exit(1);
 }
 
