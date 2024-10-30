@@ -1,5 +1,5 @@
-# Stellar Fortress
-Rewrite of Stellar Fortress in the Mosiac Engine (from https://github.com/Electro-Corp/Disunited-States-of-America).
+# Fighting Game
+Fighting Game in the Mosiac Engine.
 The Mosiac Engine has been modified to support SDL2 Rendering for Replit. 
 ## Pre-Reqs
 * a modern-ish c++ compiler that supports "#pramga"
@@ -26,7 +26,7 @@ make
 ```
 
 ## Lua API
-Stellar Fortress features a Lua API for easy scripting.
+Mosiac has a Lua API for easy scripting.
 ### Basics
 Each script needs two functions:
 
@@ -56,7 +56,7 @@ end
 ```
 
 ### On Event functions
-Stellar Fortress currently has the follwing functions that can optionally be added to be called on a specfic event: <br>
+Mosiac currently has the follwing functions that can optionally be added to be called on a specfic event: <br>
 * onKeyPressed
 
 ### `onKeyPressed`
