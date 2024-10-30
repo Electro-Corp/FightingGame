@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/src",
+                "/usr/include/qt4/QtCore",
+                "/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
+                "/usr/include/jsoncpp",
+                "/usr/include/lua5.1"
+            ],
+            "defines": [],
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}

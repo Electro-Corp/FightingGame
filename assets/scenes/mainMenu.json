@@ -1,0 +1,68 @@
+{
+  "name": "Main Menu",
+  "objects" : {
+    "Z_BLACK" : {
+      "obj" : "Engine::GameObject",
+      "args" : ["../assets/textures/menu/blacksc.jpg"],
+      "script" : "../assets/scripts/scenes/mainlogo/blackfade.lua",
+      "transform" : {
+        "position" : [0, 0],
+        "scale" : [800.0, 600.0]
+      }
+    },
+    "Y_CURSOR" : {
+      "obj" : "Engine::GameObject",
+      "args" : ["../assets/textures/menu/cursor.png"],
+      "script" : "../assets/scripts/scenes/mainlogo/cursor.lua",
+      "transform" : {
+        "position" : [0.0, 0.0],
+        "scale" : [45.0, 50.0]
+      }
+    },
+    "G_FPS" : {
+      "obj" : "UI::Text",
+      "args" : ["FPS", 255],
+      "script" : "../assets/scripts/comUI/fpsDisp.lua",
+      "transform" : {
+        "position" : [0.0, 0.0],
+        "scale" : [200.0, 20.0]
+      }
+    },
+    "D_PLAYTEXT" : {
+      "obj" : "UI::Text",
+      "args" : ["Press 'S' to begin...", 255],
+      "script" : "../assets/scripts/scenes/mainlogo/playtext.lua",
+      "transform" : {
+        "position" : [45.0, 500.0],
+        "scale" : [350.0, 45.0]
+      }
+    },
+    "C_TOPTEXT" : {
+      "obj" : "Engine::GameObject",
+      "args" : ["../assets/textures/menu/STELLAR.png"],
+      "script" : "../assets/scripts/scenes/mainlogo/logoTOP.lua",
+      "transform" : {
+        "position" : [-800.0, 800.0],
+        "scale" : [510, 170]
+      }
+    },
+    "B_BOTTEXT" : {
+      "obj" : "Engine::GameObject",
+      "args" : ["../assets/textures/menu/FORTRESS.png"],
+      "script" : "../assets/scripts/scenes/mainlogo/logoBOT.lua",
+      "transform" : {
+        "position" : [-800.0, -500.0],
+        "scale" : [510, 170]
+      }
+    },
+    "A_MENU_BG" : {
+      "obj" : "Engine::GameObject",
+      "args" : ["../assets/textures/menu/space.png"],
+      "script" : "../assets/scripts/scenes/mainlogo/bg.lua",
+      "transform" : {
+        "position" : [0, 0],
+        "scale" : [800.0, 600.0]
+      }
+    }
+  }
+}
