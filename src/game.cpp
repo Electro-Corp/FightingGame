@@ -56,15 +56,23 @@ void Game::SF::mainMenuLoop(){
 void Game::SF::tick(){
     // TODO: SWITCH STATMENT
     //this->renderer->update(*mainMenu);
-    if(scenes[tickNum]->loaded)
-        this->renderer->update((scenes[tickNum]).get());
+    if(scenes[tickNum]->loaded){
+        if(deloading){
+            deloading = false;
+            printf("Ticking %d\n", tickNum);
+        }else{
+            this->renderer->update((scenes[tickNum]).get());
+        }
+    }
 }
 
 void Game::SF::setTickNum(int num){
     if(tickNum != -1){
         printf("Deload scene %d\n", tickNum);
         //while(this->renderer->rendering){}
+        deloading = true;
         scenes[tickNum]->deload();
+        printf("Deload is %d\n", scenes[tickNum]->loaded);
     }
     this->tickNum = num;
     printf("Load scene %d\n", num);

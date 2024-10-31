@@ -101,9 +101,13 @@ void Rendering::Renderer::update(Engine::Scene* scene){
         case SDL_KEYDOWN:
             key = e.key.keysym.sym;
             for (Engine::GameObject* gameObj : scene->getObjs()){
-                if(gameObj->script){
-                    gameObj->update();
-                    gameObj->script->onKeyPressed(key);
+                if(scene->loaded){
+                    if(gameObj->script){
+                        gameObj->update();
+                        gameObj->script->onKeyPressed(key);
+                    }
+                }else{
+                    return;
                 }
 
             }

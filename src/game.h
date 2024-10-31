@@ -32,6 +32,7 @@ namespace Game{
             Rendering::Renderer* renderer;
 
             int tickNum = -1;
+            bool deloading = false;
         public:
             /********
                 SCENE LIST
