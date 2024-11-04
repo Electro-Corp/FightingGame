@@ -5,6 +5,8 @@
 #include <gameObjects/ui/text.h>
 #include <gameObjects/ui/inputpanel.h>
 #include <map/map.h>
+#include <gameObjects/character/character.h>
+
 
 /*
     Feels like this dosen't belong here, but I don't know where else to put it
@@ -16,6 +18,9 @@ std::unique_ptr<Engine::GameObject> createInstance(const std::string& className,
     if (factoryMap.empty()) {
         factoryMap["Engine::GameObject"] = [](const std::vector<std::string>& args) {
             return std::make_unique<Engine::GameObject>(args[0]);
+        };
+        factoryMap["Game::Character"] = [](const std::vector<std::string>& args) {
+            return std::make_unique<Character>(args[0]);
         };
         factoryMap["UI::Text"] = [](const std::vector<std::string>& args) {
             return std::make_unique<UI::Text>(args[0], std::stoi(args[1]));

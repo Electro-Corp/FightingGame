@@ -107,6 +107,8 @@ void Rendering::Renderer::update(Engine::Scene* scene){
                         gameObj->script->onKeyPressed(key);
                     }
                 }else{
+                    // Scene was deloaded by a gameObject,
+                    // wait for next tick
                     return;
                 }
 

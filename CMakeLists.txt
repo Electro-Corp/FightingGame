@@ -49,6 +49,8 @@ add_executable(FIGHTG
     src/gameObjects/terrain/tile.cpp
     # map
     src/map/map.cpp
+    # characters
+    src/gameObjects/character/character.cpp
     # ui
     src/gameObjects/ui/text.cpp
     src/gameObjects/ui/inputpanel.cpp

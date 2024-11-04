@@ -18,6 +18,15 @@
 		"position" : [0.0, 0.0],
 		"scale" : [200.0, 20.0]
 	      }
+	    },
+		"0_CHAR" : {
+	      "obj" : "Game::Character",
+	      "args" : ["../assets/textures/characters/dude.png"],
+	      "script" : "../assets/scripts/players/player.lua",
+	      "transform" : {
+		"position" : [0.0, 0.0],
+		"scale" : [200.0, 800.0]
+	      }
 	    }
     }
 }
