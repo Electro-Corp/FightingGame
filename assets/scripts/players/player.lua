@@ -38,8 +38,14 @@ SDL_SCANCODE_SPACE = 44
 
 count = 0
 
-function init(player)
+initialPosY = 0
 
+jumpHeight = 10
+jumpSpeed = 12
+gravity = 9.8 
+
+function init(player)
+    initialPosY = player.transform.position.y
 end
 
 function update(player)
@@ -79,6 +85,7 @@ function update(player)
         end
         count = count + 1
     end
+
 
 end
 
