@@ -23,6 +23,31 @@ namespace Engine{
 namespace Game{
     class SF;
 }
+
+class KeyboardHolder {
+public:
+    // Constructor
+    KeyboardHolder(uint8_t* data, size_t size) : data_(data), size_(size) {}
+
+    // Overload the index operator for Lua access
+    uint8_t operator[](size_t index) const {
+        if (index >= size_) {
+            throw std::out_of_range("Index out of range");
+        }
+        return data_[index];
+    }
+
+    // Optional: Provide a getter for the size
+    size_t size() const {
+        return size_;
+    }
+
+private:
+    uint8_t* data_;
+    size_t size_;
+};
+
+
 namespace Rendering{
 
     // Layer to render on
@@ -52,6 +77,8 @@ namespace Rendering{
             unsigned int a = 0;
             unsigned int b = 0;
             double delta = 0;
+
+            Uint8* keyBoardState;
 
             Engine::Scene* lScene;
 
@@ -95,6 +122,10 @@ namespace Rendering{
             float getDeltaTime();
 
             float getDelta();
+
+            KeyboardHolder getKeyboardState(){
+                return KeyboardHolder(keyBoardState, 100);
+            }
 
             SDL_Renderer* getRenderer();
 

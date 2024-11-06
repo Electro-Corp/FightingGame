@@ -63,6 +63,9 @@ void Rendering::Renderer::update(Engine::Scene* scene){
 #endif
 #if USE_SDL
     char key = NULL;
+    // Poll full on input
+    this->keyBoardState = SDL_GetKeyboardState(NULL);    
+    SDL_PumpEvents();
     // Poll input
     SDL_Event e;
     SDL_PollEvent(&e);

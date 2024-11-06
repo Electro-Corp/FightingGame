@@ -55,6 +55,8 @@ void Scripting::Script::onKeyPressed(char key){
     }
 }
 
+
+
 Scripting::ScriptManager::ScriptManager(){
     
 }
@@ -161,6 +163,12 @@ void Scripting::ScriptManager::exposeGame(lua_State* state){
         .endClass();
         
 
+    luabridge::getGlobalNamespace(state)
+        .beginClass<KeyboardHolder>("KeyboardHolder")
+        .addConstructor<void(*)(uint8_t*, size_t)>()
+        .addFunction("__index", &KeyboardHolder::operator[])
+        .addFunction("size", &KeyboardHolder::size)
+        .endClass();
 
    
     luabridge::getGlobalNamespace(state)
@@ -177,6 +185,7 @@ void Scripting::ScriptManager::exposeGame(lua_State* state){
         .addFunction("getViewPos", &Rendering::Renderer::getViewPos)
         .addFunction("zoomView", &Rendering::Renderer::zoomView)
         .addFunction("rotateView", &Rendering::Renderer::rotateView)
+        .addFunction("getKeyboardState", &Rendering::Renderer::getKeyboardState)
         .endClass();
 
     

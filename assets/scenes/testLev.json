@@ -25,7 +25,7 @@
 	      "script" : "../assets/scripts/players/player.lua",
 	      "transform" : {
 		"position" : [0.0, 0.0],
-		"scale" : [200.0, 800.0]
+		"scale" : [300.0, 600.0]
 	      }
 	    }
     }
