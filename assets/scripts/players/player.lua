@@ -7,6 +7,7 @@ y = 0
 space = false
 jump = false
 goDown = false
+inAir = false
 
 SDL_SCANCODE_A = 4
 SDL_SCANCODE_B = 5
@@ -48,43 +49,57 @@ function init(player)
     initialPosY = player.transform.position.y
 end
 
+vel = 0
+maxVel = 15
+acceL = 5
+
+
+yVel = 0
+
 function update(player)
 
     if(Graphics:getKeyboardState()[SDL_SCANCODE_D] == 1) then
-        player.transform.position.x = player.transform.position.x + 10
+        if vel < maxVel then
+            vel = vel + acceL
+        end
+    elseif (Graphics:getKeyboardState()[SDL_SCANCODE_A] == 1) then
+        if vel > maxVel * -1 then
+            vel = vel - acceL
+        end
+    else
+        if vel > 0 then
+            vel = vel - acceL
+        elseif vel < 0 then
+            vel = vel + acceL
+        end
     end
 
-    if(Graphics:getKeyboardState()[SDL_SCANCODE_A] == 1) then
-        player.transform.position.x = player.transform.position.x - 10
-    end
-
-    if Graphics:getKeyboardState()[SDL_SCANCODE_SPACE] == 1 and jump == false and goDown == false then
+    if Graphics:getKeyboardState()[SDL_SCANCODE_SPACE] == 1 and inAir == false and space == false and jump == false and goDown == false then
         space = true
         jump = true
         count = 0
-    end
-    if Graphics:getKeyboardState()[SDL_SCANCODE_SPACE] == 0 then
+    elseif Graphics:getKeyboardState()[SDL_SCANCODE_SPACE] == 0 then
         space = false
     end
 
     if jump == true then
-        player.transform.position.y = player.transform.position.y - (0.5 * 5.8 * (count * count))
-        if count > 5 then 
-            count = 0
+        yVel = yVel - 2
+        if yVel < -15 then
             jump = false
-            goDown = true
+            space = true
         end
-        count = count + 1
+        inAir = true
+    elseif player.transform.position.y < initialPosY then
+        yVel = yVel + 2
+        inAir = true
+    else 
+        yVel = 0
+        inAir = false
+        space = false
     end
 
-    if goDown == true then 
-        player.transform.position.y = player.transform.position.y + (0.5 * 5.8 * (count * count))
-        if count > 5 then 
-            count = 0
-            goDown = false
-        end
-        count = count + 1
-    end
+    player.transform.position.x = player.transform.position.x + vel
+    player.transform.position.y = player.transform.position.y + yVel
 
 
 end
