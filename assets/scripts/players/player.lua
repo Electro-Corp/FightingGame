@@ -41,9 +41,8 @@ count = 0
 
 initialPosY = 0
 
-jumpHeight = 10
-jumpSpeed = 12
-gravity = 9.8 
+jumpSpeed = 15
+gravity = 2
 
 function init(player)
     initialPosY = player.transform.position.y
@@ -87,35 +86,33 @@ function update(player)
 
     if Graphics:getKeyboardState()[SDL_SCANCODE_W] == 1 and inAir == false and space == false and jump == false and goDown == false then
         space = true
-        jump = true
         count = 0
-        yVel = -20
+        yVel = -1 * jumpSpeed
     elseif Graphics:getKeyboardState()[SDL_SCANCODE_W] == 0 then
         space = false
     end
-
-    -- if jump == true then
-    --     yVel = yVel - 2
-    --     if yVel < -15 then
-    --         jump = false
-    --         space = true
-    --     end
-    --     inAir = true
-    --else
-    
 
     player.transform.position.x = player.transform.position.x + vel
     player.transform.position.y = player.transform.position.y + yVel
 
     if player.transform.position.y < initialPosY then
-        yVel = yVel + 2
+        yVel = yVel + gravity
         inAir = true
+        jump = true
     else
         yVel = 0
         inAir = false
         space = false
-        jump = false
     end
+
+    if jump == true then
+        count = count + 1
+        if count > 8 then 
+            jump = false
+            count = 0
+        end
+    end
+
 
 end
 
