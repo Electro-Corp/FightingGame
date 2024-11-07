@@ -57,7 +57,7 @@ acceL = 5
 yVel = 0
 
 function update(player)
-
+    
     if(Graphics:getKeyboardState()[SDL_SCANCODE_D] == 1) then
         if vel < maxVel then
             vel = vel + acceL
@@ -74,53 +74,51 @@ function update(player)
         end
     end
 
-    if Graphics:getKeyboardState()[SDL_SCANCODE_SPACE] == 1 and inAir == false and space == false and jump == false and goDown == false then
+    -- if(Graphics:getKeyboardState()[SDL_SCANCODE_S] == 1) then
+    --     player.transform.scale.y = 200
+    --     player.transform.position.y = 400
+    --     initialPosY = player.transform.position.y 
+    -- else
+    --     player.transform.scale.y = 400
+    --     player.transform.position.y = 200.
+    --     initialPosY = player.transform.position.y 
+    -- end
+
+
+    if Graphics:getKeyboardState()[SDL_SCANCODE_W] == 1 and inAir == false and space == false and jump == false and goDown == false then
         space = true
         jump = true
         count = 0
-    elseif Graphics:getKeyboardState()[SDL_SCANCODE_SPACE] == 0 then
+        yVel = -20
+    elseif Graphics:getKeyboardState()[SDL_SCANCODE_W] == 0 then
         space = false
     end
 
-    if jump == true then
-        yVel = yVel - 2
-        if yVel < -15 then
-            jump = false
-            space = true
-        end
-        inAir = true
-    elseif player.transform.position.y < initialPosY then
-        yVel = yVel + 2
-        inAir = true
-    else 
-        yVel = 0
-        inAir = false
-        space = false
-    end
+    -- if jump == true then
+    --     yVel = yVel - 2
+    --     if yVel < -15 then
+    --         jump = false
+    --         space = true
+    --     end
+    --     inAir = true
+    --else
+    
 
     player.transform.position.x = player.transform.position.x + vel
     player.transform.position.y = player.transform.position.y + yVel
 
+    if player.transform.position.y < initialPosY then
+        yVel = yVel + 2
+        inAir = true
+    else
+        yVel = 0
+        inAir = false
+        space = false
+        jump = false
+    end
 
 end
 
 function onKeyPressed(player, key, keys)
-    -- if key == 'd' then
-    --     player.transform.position.x = player.transform.position.x + 10
-    -- end
-    -- if key == 'a' then
-    --     player.transform.position.x = player.transform.position.x - 10
-    -- end
-    -- if key ~= ' ' then
-    --     space = false
-    -- end
-    -- if key == ' '  and jump == false and goDown == false then
-    --     space = true
-    --     jump = true
-    --     count = 0
-    -- end
-    -- print(space)
-    -- print(jump)
-    -- print(goDown)
     
 end

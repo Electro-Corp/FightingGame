@@ -3,7 +3,7 @@
   "objects" : {
 		"0_CURSOR" : {
 	      "obj" : "Engine::GameObject",
-	      "args" : ["../assets/textures/back.jpg"],
+	      "args" : ["../assets/textures/back.png"],
 	      "script" : "NONE",
 	      "transform" : {
 			"position" : [0.0, 0.0],
