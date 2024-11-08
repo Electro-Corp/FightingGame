@@ -46,6 +46,7 @@ gravity = 2
 
 function init(player)
     initialPosY = player.transform.position.y
+    print(player.player)
 end
 
 vel = 0

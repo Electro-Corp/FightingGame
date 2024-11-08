@@ -6,6 +6,7 @@
 
 #include <gameObjects/ui/text.h>
 #include <gameObjects/ui/inputpanel.h>
+#include <gameObjects/character/character.h>
 
 Scripting::Script::Script(lua_State* L, std::string path){
     std::cout << "Loading funcs in \"" << path << "\"\n";
@@ -146,6 +147,11 @@ void Scripting::ScriptManager::exposeGame(lua_State* state){
         .addFunction("setTex", &Engine::GameObject::setTex)
         .addProperty("transform", &Engine::GameObject::transform)
         // .addProperty("sprite", &Engine::GameObject::sprite)
+        .endClass()
+        .deriveClass<Character, Engine::GameObject>("Character")
+        // .addConstructor<void(*) ()>()
+        .addConstructor<void(*) (std::string, std::string, std::string)>()
+        .addProperty("player", &Character::player)
         .endClass()
         .deriveClass<UI::Text, Engine::GameObject>("Text")
         // .addConstructor<void(*) ()>()

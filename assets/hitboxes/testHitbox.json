@@ -1,19 +1,29 @@
 {
-    "idleHitBoxs" : [
+    "2kHitBoxs" : [
         {
-            "SkipFrames" : 5,
             "Frames" : [
                 {
-
+                    "SkipFrames" : 5
                 },
                 {
-
+                    "SkipFrames" : 8
                 },
                 {
 
                 }
             ]
         }
+    ],
+    "IdleHitBox": [
+        {
+            "Frames":[
+                {
+                    "SkipFrames" : -1,
+                    "x_size" : 150,
+                    "y_size" : 250
+                }
+            ]     
+        }  
     ]
 
 }
