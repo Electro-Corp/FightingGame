@@ -54,7 +54,7 @@ acceL = 5
 
 
 yVel = 0
-
+--I FUCKING HATE. IT"S ALL IO DO
 function update(player)
 
     if(Graphics:getKeyboardState()[SDL_SCANCODE_D] == 1) then
