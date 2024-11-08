@@ -41,7 +41,7 @@ count = 0
 
 initialPosY = 0
 
-jumpSpeed = 15
+jumpSpeed = 20
 gravity = 2
 
 function init(player)
@@ -49,28 +49,29 @@ function init(player)
 end
 
 vel = 0
-maxVel = 15
+maxVel = 10
 acceL = 5
 
 
 yVel = 0
 
 function update(player)
-    
+
     if(Graphics:getKeyboardState()[SDL_SCANCODE_D] == 1) then
-        if vel < maxVel then
+        if vel < maxVel and not inAir then
             vel = vel + acceL
         end
     elseif (Graphics:getKeyboardState()[SDL_SCANCODE_A] == 1) then
-        if vel > maxVel * -1 then
+        if vel > maxVel * -1 and not inAir then
             vel = vel - acceL
         end
     else
-        if vel > 0 then
+        if vel > 0 and not inAir then
             vel = vel - acceL
-        elseif vel < 0 then
+        elseif vel <0 and not inAir then
             vel = vel + acceL
         end
+        
     end
 
     -- if(Graphics:getKeyboardState()[SDL_SCANCODE_S] == 1) then
@@ -82,7 +83,6 @@ function update(player)
     --     player.transform.position.y = 200.
     --     initialPosY = player.transform.position.y 
     -- end
-
 
     if Graphics:getKeyboardState()[SDL_SCANCODE_W] == 1 and inAir == false and space == false and jump == false and goDown == false then
         space = true
@@ -113,9 +113,8 @@ function update(player)
         end
     end
 
-
-end
-
-function onKeyPressed(player, key, keys)
     
+    
+
 end
+

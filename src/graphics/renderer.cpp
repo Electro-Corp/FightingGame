@@ -62,10 +62,11 @@ void Rendering::Renderer::update(Engine::Scene* scene){
     }
 #endif
 #if USE_SDL
+    SDL_PumpEvents();
     char key = NULL;
     // Poll full on input
     this->keyBoardState = SDL_GetKeyboardState(NULL);    
-    SDL_PumpEvents();
+    
     // Poll input
     SDL_Event e;
     SDL_PollEvent(&e);
@@ -106,7 +107,7 @@ void Rendering::Renderer::update(Engine::Scene* scene){
             for (Engine::GameObject* gameObj : scene->getObjs()){
                 if(scene->loaded){
                     if(gameObj->script){
-                        gameObj->update();
+                        //gameObj->update();
                         gameObj->script->onKeyPressed(key);
                     }
                 }else{
