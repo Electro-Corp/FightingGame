@@ -1,0 +1,19 @@
+{
+    "idleHitBoxs" : [
+        {
+            "SkipFrames" : 5,
+            "Frames" : [
+                {
+
+                },
+                {
+
+                },
+                {
+
+                }
+            ]
+        }
+    ]
+
+}

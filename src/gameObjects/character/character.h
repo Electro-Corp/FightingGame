@@ -7,7 +7,7 @@ class Character : public Engine::GameObject{
 private:
 typedef Engine::GameObject super;
 public:
-    Character(std::string);
+    Character(std::string, std::string hitboxDat);
 
 };
 #endif

@@ -30,7 +30,7 @@
 	    },
 		"1_CHAR" : {
 	      "obj" : "Game::Character",
-	      "args" : ["../assets/textures/characters/dude_.png"],
+	      "args" : ["../assets/textures/characters/dude_.png", "../assets/hitboxes/testHitbox.json"],
 	      "script" : "../assets/scripts/players/player.lua",
 	      "transform" : {
 			"position" : [0.0, 250.0],
