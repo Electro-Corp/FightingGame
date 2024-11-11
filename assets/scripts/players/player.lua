@@ -44,9 +44,25 @@ initialPosY = 0
 jumpSpeed = 20
 gravity = 2
 
+CODE_LEFT = 0
+CODE_RIGHT = 0
+CODE_UP = 0
+
 function init(player)
     initialPosY = player.transform.position.y
+   
     print(player.player)
+
+    if string.find(player.player, "P1") then
+        CODE_LEFT = SDL_SCANCODE_A
+        CODE_RIGHT = SDL_SCANCODE_D
+        CODE_UP = SDL_SCANCODE_W
+    else
+        CODE_LEFT = SDL_SCANCODE_J
+        CODE_RIGHT = SDL_SCANCODE_L
+        CODE_UP = SDL_SCANCODE_I
+    end
+
 end
 
 vel = 0
@@ -55,14 +71,18 @@ acceL = 5
 
 
 yVel = 0
---I FUCKING HATE. IT"S ALL IO DO
+
 function update(player)
 
-    if(Graphics:getKeyboardState()[SDL_SCANCODE_D] == 1) then
+    --player.loadHitbox(player, "IdleHitBox")
+
+    player.loadHitBoxNum(player, 0)
+
+    if(Graphics:getKeyboardState()[CODE_RIGHT] == 1) then
         if vel < maxVel and not inAir then
             vel = vel + acceL
         end
-    elseif (Graphics:getKeyboardState()[SDL_SCANCODE_A] == 1) then
+    elseif (Graphics:getKeyboardState()[CODE_LEFT] == 1) then
         if vel > maxVel * -1 and not inAir then
             vel = vel - acceL
         end
@@ -85,11 +105,11 @@ function update(player)
     --     initialPosY = player.transform.position.y 
     -- end
 
-    if Graphics:getKeyboardState()[SDL_SCANCODE_W] == 1 and inAir == false and space == false and jump == false and goDown == false then
+    if Graphics:getKeyboardState()[CODE_UP] == 1 and inAir == false and space == false and jump == false and goDown == false then
         space = true
         count = 0
         yVel = -1 * jumpSpeed
-    elseif Graphics:getKeyboardState()[SDL_SCANCODE_W] == 0 then
+    elseif Graphics:getKeyboardState()[CODE_UP] == 0 then
         space = false
     end
 

@@ -30,10 +30,19 @@
 	    },
 		"1_CHAR" : {
 	      "obj" : "Game::Character",
-	      "args" : ["../assets/textures/characters/dude_.png", "../assets/hitboxes/testHitbox.json", "P1"],
+	      "args" : ["../assets/textures/characters/dude.png", "../assets/hitboxes/testHitbox.json", "P1"],
 	      "script" : "../assets/scripts/players/player.lua",
 	      "transform" : {
 			"position" : [0.0, 250.0],
+			"scale" : [150.0, 250.0]
+	      }
+	    },
+		"2_CHAR" : {
+	      "obj" : "Game::Character",
+	      "args" : ["../assets/textures/characters/dude_.png", "../assets/hitboxes/testHitbox.json", "P2"],
+	      "script" : "../assets/scripts/players/player.lua",
+	      "transform" : {
+			"position" : [200.0, 250.0],
 			"scale" : [150.0, 250.0]
 	      }
 	    }

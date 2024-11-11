@@ -16,7 +16,7 @@ function update(object)
   
 end
 
-function onKeyPressed(object, key, keys)
+function onKeyPressed(object, key)
   print(key)
   if key == 's' then
     Game:setTickNum(1)
