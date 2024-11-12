@@ -60,22 +60,7 @@ void Character::loadHitBoxNum(int num){
 
 void Character::update(){
 #if USE_SFML
-    // Update text transformation
-    this->text.setPosition(
-        sf::Vector2f(
-            this->transform.position.x,
-            this->transform.position.y
-        )
-    );
-    this->text.setScale(
-        sf::Vector2f(
-            this->transform.scale.x,
-            this->transform.scale.y
-        )
-    );
-    this->text.setRotation(
-        this->transform.angle
-    );
+    // SFML code here, ig.
 #endif
 #if USE_SDL
     texture_rect.x = this->transform.position.x; 
@@ -124,5 +109,14 @@ void Character::draw(SDL_Renderer* window){
             SDL_SetRenderDrawColor(window, 255, 0, 0, 255);
             SDL_RenderDrawRect(window, &drawRect);
         }
+    }
+}
+
+
+Character::~Character(){
+    std::cout << "Deload character\n";
+    for (auto& box : hitBoxes){
+        std::cout << "Deload " << box->name << "\n";
+        delete box;
     }
 }

@@ -43,5 +43,7 @@ public:
     void draw(SDL_Renderer* window) override;
 #endif
 
+    ~Character();
+
 };
 #endif

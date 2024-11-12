@@ -57,10 +57,15 @@ function init(player)
         CODE_LEFT = SDL_SCANCODE_A
         CODE_RIGHT = SDL_SCANCODE_D
         CODE_UP = SDL_SCANCODE_W
+        
+        player.loadHitbox(player, "IdleHitBox")
+
     else
         CODE_LEFT = SDL_SCANCODE_J
         CODE_RIGHT = SDL_SCANCODE_L
         CODE_UP = SDL_SCANCODE_I
+        player.loadHitbox(player, "HouseHitBox")
+
     end
 
 end
@@ -74,9 +79,8 @@ yVel = 0
 
 function update(player)
 
-    --player.loadHitbox(player, "IdleHitBox")
 
-    player.loadHitBoxNum(player, 0)
+    --player.loadHitBoxNum(player, 0)
 
     if(Graphics:getKeyboardState()[CODE_RIGHT] == 1) then
         if vel < maxVel and not inAir then
@@ -94,16 +98,6 @@ function update(player)
         end
         
     end
-
-    -- if(Graphics:getKeyboardState()[SDL_SCANCODE_S] == 1) then
-    --     player.transform.scale.y = 200
-    --     player.transform.position.y = 400
-    --     initialPosY = player.transform.position.y 
-    -- else
-    --     player.transform.scale.y = 400
-    --     player.transform.position.y = 200.
-    --     initialPosY = player.transform.position.y 
-    -- end
 
     if Graphics:getKeyboardState()[CODE_UP] == 1 and inAir == false and space == false and jump == false and goDown == false then
         space = true
@@ -133,9 +127,6 @@ function update(player)
             count = 0
         end
     end
-
-    
-    
 
 end
 
